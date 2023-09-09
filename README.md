@@ -13,7 +13,7 @@
 
 
 ```bash
-  git clone -b master https://github.com/vladgenyuk/Library_test_m2m
+  git clone -b master https://github.com/vladgenyuk/1AK_M2M
 ```
 ```bash
   cd Test1AK
@@ -26,13 +26,17 @@
 
 
 ```bash
-  git clone -b master https://github.com/vladgenyuk/Library_test_m2m
+  git clone -b master https://github.com/vladgenyuk/1AK_M2M
 ```
 ```
-alembic upgrade head
+  alembic upgrade head
 ```
 ```bash
   docker run --name 1AK_mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_USER=vlad -e MYSQL_PASSWORD=qseawdzxc1 -e MYSQL_DATABASE=library -e MYSQL_CHARACTER_SET_SERVER=utf8mb4 -e MYSQL_COLLATION_SERVER=utf8mb4_general_ci -d mysql:latest
+```
+
+```
+  update DB_HOST in .env file as localhost
 ```
 
 ```bash
