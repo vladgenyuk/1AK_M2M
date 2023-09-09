@@ -16,7 +16,7 @@
   git clone -b master https://github.com/vladgenyuk/1AK_M2M
 ```
 ```bash
-  cd Test1AK
+  cd 1AK_M2M
 ```
 ```bash
   docker-compose up -d
