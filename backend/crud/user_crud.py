@@ -1,5 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, insert, and_
+from sqlalchemy import select, and_
 
 from backend.models.user import Reader
 

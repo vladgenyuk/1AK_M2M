@@ -1,6 +1,6 @@
 from datetime import date
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from typing import List
 
 
@@ -27,6 +27,7 @@ class ReaderBook(BaseModel):
 
 
 from .user import ReaderCreate, Author
+
 Book.update_forward_refs()
 BookCreate.update_forward_refs()
 ReaderBook.update_forward_refs()

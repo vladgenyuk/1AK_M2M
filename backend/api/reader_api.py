@@ -1,14 +1,13 @@
 from datetime import datetime
 
-from fastapi import APIRouter, Request, HTTPException, Query
+from fastapi import APIRouter, Request, HTTPException
 
 from sqlalchemy import insert, update, and_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm import joinedload, relationship
 
 from backend.schemas.user import ReaderCreate, LoginReader
-from backend.models import ReadersBooks, Book, AuthorsBooks, Author, Reader
+from backend.models import ReadersBooks, Book, AuthorsBooks, Author
 from backend.crud.user_crud import user
 
 router = APIRouter()
@@ -139,7 +138,7 @@ async def get_available_books(
         data = dict(r._mapping)
         book = data['Book']
         author = data['Author']
-        if not book.id in hashset:
+        if book.id not in hashset:
             hashset[book.id] = []
             hashset[book.id].append(book.title)
         hashset[book.id].append(author)
@@ -168,7 +167,7 @@ async def get_my_books(
         data = dict(r._mapping)
         book = data['Book']
         author = data['Author']
-        if not book.id in hashset:
+        if book.id not in hashset:
             hashset[book.id] = []
             hashset[book.id].append(book.title)
         hashset[book.id].append(author)

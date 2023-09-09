@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Request
 from sqlalchemy.ext.asyncio.session import AsyncSession
-from sqlalchemy import and_, select, insert, func
+from sqlalchemy import and_, select, func
 
 from backend.schemas.book import BookCreate
 from backend.models import Book, Author, AuthorsBooks, ReadersBooks, Reader
@@ -42,7 +42,7 @@ async def create_book(
 
     authors_in_db = {
         f'{i.first_name+i.last_name}': i.id
-    for i in results.scalars()}
+        for i in results.scalars()}
 
     book_obj = Book(title=book_data['title'])
     await session.execute(stmt)
